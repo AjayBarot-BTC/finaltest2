@@ -1,53 +1,62 @@
-<%= form_for(@projectdetail) do |f| %>
-  <% if @projectdetail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@projectdetail.errors.count, "error") %> prohibited this projectdetail from being saved:</h2>
-
-      <ul>
-      <% @projectdetail.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for @projectdetail, :html => { :class => 'form-horizontal' } do |f| %>
+  <div class="control-group">
+    <%= f.label :proj_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :proj_name, :class => 'text_field' %>
     </div>
-  <% end %>
+  </div>
+  <div class="control-group">
+    <%= f.label :proj_code, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :proj_code, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :proj_desc, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :proj_desc, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :biling_type, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :biling_type, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :start_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :start_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :dead_line_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :dead_line_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :end_date, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :end_date, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :github_url, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :github_url, :class => 'text_field' %>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :status, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :status, :class => 'text_field' %>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :proj_name %><br>
-    <%= f.text_field :proj_name %>
-  </div>
-  <div class="field">
-    <%= f.label :proj_code %><br>
-    <%= f.text_field :proj_code %>
-  </div>
-  <div class="field">
-    <%= f.label :proj_desc %><br>
-    <%= f.text_field :proj_desc %>
-  </div>
-  <div class="field">
-    <%= f.label :biling_type %><br>
-    <%= f.text_field :biling_type %>
-  </div>
-  <div class="field">
-    <%= f.label :start_date %><br>
-    <%= f.text_field :start_date %>
-  </div>
-  <div class="field">
-    <%= f.label :dead_line_date %><br>
-    <%= f.text_field :dead_line_date %>
-  </div>
-  <div class="field">
-    <%= f.label :end_date %><br>
-    <%= f.text_field :end_date %>
-  </div>
-  <div class="field">
-    <%= f.label :github_url %><br>
-    <%= f.text_field :github_url %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-actions">
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+    <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                projectdetails_path, :class => 'btn' %>
   </div>
 <% end %>

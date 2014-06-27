@@ -5,12 +5,24 @@
     <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= render 'layouts/shim' %>
   </head>
   <body>
     <%= render 'layouts/header' %>
     <div class="container">
-      <%= yield %>
+    <div class="row">
+      <div class="span10"><%= yield %></div>
+      <div class="span2">
+        <h2>About Us</h2>
+        BoTree Consulting
+        Address:
+        FF – 1-2, JBR Arcade, Science City Road, Ahmedabad, Gujarat, India
+      <br>
+        Email:
+        sales@botreeconsulting.com
+      </div>
+    </div>
       <%= render 'layouts/footer' %>
     </div>
   </body>

@@ -1,26 +1,28 @@
-<h1>Listing Project Details</h1>
-
-<table>
+<%- model_class = Projectdetail -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Proj name</th>
-      <th>Proj code</th>
-      <th>Proj desc</th>
-      <th>Biling type</th>
-      <th>Start date</th>
-      <th>Dead line date</th>
-      <th>End date</th>
-      <th>Github url</th>
-      <th>Status</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:proj_name) %></th>
+      <th><%= model_class.human_attribute_name(:proj_code) %></th>
+      <th><%= model_class.human_attribute_name(:proj_desc) %></th>
+      <th><%= model_class.human_attribute_name(:biling_type) %></th>
+      <th><%= model_class.human_attribute_name(:start_date) %></th>
+      <th><%= model_class.human_attribute_name(:dead_line_date) %></th>
+      <th><%= model_class.human_attribute_name(:end_date) %></th>
+      <th><%= model_class.human_attribute_name(:github_url) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @projectdetails.each do |projectdetail| %>
       <tr>
+        <td><%= link_to projectdetail.id, projectdetail_path(projectdetail) %></td>
         <td><%= projectdetail.proj_name %></td>
         <td><%= projectdetail.proj_code %></td>
         <td><%= projectdetail.proj_desc %></td>
@@ -30,14 +32,21 @@
         <td><%= projectdetail.end_date %></td>
         <td><%= projectdetail.github_url %></td>
         <td><%= projectdetail.status %></td>
-        <td><%= link_to 'Show', projectdetail %></td>
-        <td><%= link_to 'Edit', edit_projectdetail_path(projectdetail) %></td>
-        <td><%= link_to 'Destroy', projectdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l projectdetail.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_projectdetail_path(projectdetail), :class => 'btn btn-mini' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      projectdetail_path(projectdetail),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Project detail', new_projectdetail_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_projectdetail_path,
+            :class => 'btn btn-primary' %>
