@@ -40,7 +40,6 @@ class ProjectdetailsController < ApplicationController
     @projectdetail.destroy
     respond_to do |format|
       format.html { redirect_to projectdetails_url }
-      format.json { head :no_content }
     end
   end
 
