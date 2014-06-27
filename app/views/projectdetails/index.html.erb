@@ -1,0 +1,43 @@
+<h1>Listing projectdetails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Proj name</th>
+      <th>Proj code</th>
+      <th>Proj desc</th>
+      <th>Biling type</th>
+      <th>Start date</th>
+      <th>Dead line date</th>
+      <th>End date</th>
+      <th>Github url</th>
+      <th>Status</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @projectdetails.each do |projectdetail| %>
+      <tr>
+        <td><%= projectdetail.proj_name %></td>
+        <td><%= projectdetail.proj_code %></td>
+        <td><%= projectdetail.proj_desc %></td>
+        <td><%= projectdetail.biling_type %></td>
+        <td><%= projectdetail.start_date %></td>
+        <td><%= projectdetail.dead_line_date %></td>
+        <td><%= projectdetail.end_date %></td>
+        <td><%= projectdetail.github_url %></td>
+        <td><%= projectdetail.status %></td>
+        <td><%= link_to 'Show', projectdetail %></td>
+        <td><%= link_to 'Edit', edit_projectdetail_path(projectdetail) %></td>
+        <td><%= link_to 'Destroy', projectdetail, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Project detail', new_projectdetail_path %>

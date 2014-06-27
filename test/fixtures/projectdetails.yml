@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  proj_name: MyString
+  proj_code: MyString
+  proj_desc: MyString
+  biling_type: MyString
+  start_date: MyString
+  dead_line_date: MyString
+  end_date: MyString
+  github_url: MyString
+  status: MyString
+
+two:
+  proj_name: MyString
+  proj_code: MyString
+  proj_desc: MyString
+  biling_type: MyString
+  start_date: MyString
+  dead_line_date: MyString
+  end_date: MyString
+  github_url: MyString
+  status: MyString
