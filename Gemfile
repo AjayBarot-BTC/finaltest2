@@ -10,11 +10,11 @@ end
 
 gem 'bootstrap-sass', '2.3.2.0'
 
-gem 'twitter-bootstrap-rails'
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'sprockets', '2.11.0'
 
 gem "therubyracer"
-gem "less-rails"
+gem 'less-rails', '2.3.3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.2'
