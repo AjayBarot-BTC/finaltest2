@@ -14,6 +14,4 @@ end
 require './modulefile'
 Reuse.fortarget()
 n = gets.chomp()
-Reuse.formaxvalue()
-n2 = gets.chomp()
-puts printPartitions(n.to_i,n2.to_i,"")
+puts printPartitions(n.to_i,n.to_i-1,"")

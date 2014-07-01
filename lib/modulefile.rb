@@ -1,7 +1,7 @@
 module Reuse
 	def Reuse.promting
 		prompt = '> '
-		puts "Enter the value of n"
+		puts "Enter Number to find Sum "
 		print prompt	
 	end
 

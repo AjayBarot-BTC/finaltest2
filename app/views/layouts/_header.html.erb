@@ -2,7 +2,12 @@
 <title>Header</title>
   <div class="navbar-inner">
     <div class="container">
-      <%= link_to "Project Tracking", '#', id: "logo" %>
+      <%= link_to "Project Tracking", projectdetails_path, id: "logo" %>
+      <nav>
+            <ul class="nav pull-right">
+              <li><%= link_to "Home", root_path %></li>
+            </ul>
+          </nav>
     </div>
   </div>
 </header>

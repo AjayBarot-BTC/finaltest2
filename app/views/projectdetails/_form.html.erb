@@ -10,61 +10,70 @@
       </ul>
     </div>
   <% end %>
-  <div class="control-group">
-    <%= f.label :proj_name, :class => 'control-label' %>
+  <div class="container">
+    <div class="row">
+      <div class="span5">
+      <div class="control-group">
+    <%= f.label :Project_name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :proj_name, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :proj_code, :class => 'control-label' %>
+    <%= f.label :Project_code, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :proj_code, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :proj_desc, :class => 'control-label' %>
+    <%= f.label :Project_description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :proj_desc, :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :biling_type, :class => 'control-label' %>
+    <%= f.label :Biling_type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :biling_type, :class => 'text_field' %>
+      <%= f.select :biling_type, ['TNM', 'FIXED'], :class => 'text_field' %>
     </div>
   </div>
+
   <div class="control-group">
-    <%= f.label :start_date, :class => 'control-label' %>
+    <%= f.label :Start_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :start_date, :class => 'text_field' %>
+      <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', :class => 'text_field' %>
     </div>
   </div>
+      <%= yield %></div>
+      <div class="span5">
   <div class="control-group">
-    <%= f.label :dead_line_date, :class => 'control-label' %>
+    <%= f.label :Dead_line_date, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :dead_line_date, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :end_date, :class => 'control-label' %>
+    <%= f.label :End_date, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :end_date, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :github_url, :class => 'control-label' %>
+    <%= f.label :Github_url, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :github_url, :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
-    <%= f.label :status, :class => 'control-label' %>
+    <%= f.label :Status, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :status, :class => 'text_field' %>
+      <%= f.select :status,['POC', 'KICK OFF', 'COMPLETED'], :class => 'text_field' %>
     </div>
   </div>
-
+  </div>
+  </div>
+  </div>
   <div class="form-actions">
     <%= f.submit nil, :class => 'btn btn-primary' %>
     <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
