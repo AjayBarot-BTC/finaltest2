@@ -13,6 +13,8 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'sprockets', '2.11.0'
 
+gem 'bootstrap-datepicker-rails'
+
 gem "therubyracer"
 gem 'less-rails', '2.3.3'
 
@@ -31,6 +33,7 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+gem 'jquery-ui-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 

@@ -16,59 +16,60 @@
       <div class="control-group">
     <%= f.label :Project_name, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :proj_name, :class => 'text_field' %>
+      <%= f.text_field :proj_name, placeholder: "Enter Project Name", :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :Project_code, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :proj_code, :class => 'text_field' %>
+      <%= f.text_field :proj_code, placeholder: "Enter Project Code", :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :Project_description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :proj_desc, :class => 'text_field' %>
+      <%= f.text_field :proj_desc, placeholder: "Enter Project Description", :class => 'text_field' %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :Biling_type, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :biling_type, ['TNM', 'FIXED'], :class => 'text_field' %>
+      <%= f.select :biling_type, ['TNM', 'FIXED'], placeholder: "Select Biling type", :class => 'text_field' %>
     </div>
   </div>
 
   <div class="control-group">
     <%= f.label :Start_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :start_date, 'data-behaviour' => 'datepicker', :class => 'text_field' %>
+      <%= f.text_field :start_date, placeholder: "Select Start Date" , 'data-behaviour' => 'datepicker', :id => 'datepicker', :class => 'text_field' %>,
     </div>
   </div>
+
       <%= yield %></div>
       <div class="span5">
   <div class="control-group">
     <%= f.label :Dead_line_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :dead_line_date, :class => 'text_field' %>
+      <%= f.text_field :dead_line_date, placeholder: "Select Dead line date" , 'data-behaviour' => 'datepicker', :id => 'datepicker', :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :End_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :end_date, :class => 'text_field' %>
+      <%= f.text_field :end_date, placeholder: "Select End date" , 'data-behaviour' => 'datepicker' , :id => 'datepicker', :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :Github_url, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :github_url, :class => 'text_field' %>
+      <%= f.text_field :github_url, placeholder: "Enter Github url ", :class => 'text_field' %>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :Status, :class => 'control-label' %>
     <div class="controls">
-      <%= f.select :status,['POC', 'KICK OFF', 'COMPLETED'], :class => 'text_field' %>
+      <%= f.select :status, ['POC', 'KICK OFF', 'COMPLETED'], placeholder: "Select Status"  , :class => 'text_field' %>
     </div>
   </div>
   </div>
