@@ -4,14 +4,13 @@ class ProjectdetailsController < ApplicationController
 
   def index
     #@projectdetails = projectdetail.all
-    @projectdetails = Projectdetail.order('dead_line_date asc').page(params[:page]).per(5).where("proj_name LIKE ? OR status LIKE ? ", "#{params[:search]}%", "#{params[:search]}%")
+    @projectdetails = Projectdetail.order('dead_line_date asc').page(params[:page]).per(5).where("proj_name LIKE ? OR status LIKE ?", "#{params[:search]}%", "#{params[:search]}%")
     
     #@searches = User.joins([:requests]).where("name LIKE ? OR destination LIKE ?","#{params[:search]}%", "#{params[:search]}%")
     @organizations = Organization.all
   end
 
   def show
-    #@projectdetail = Projectdetail.find(params[:id])
   end
 
   def new
