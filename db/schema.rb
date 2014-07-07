@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140707083835) do
+ActiveRecord::Schema.define(version: 20140707110540) do
 
   create_table "organizations", force: true do |t|
     t.string   "org_name"
@@ -32,8 +32,19 @@ ActiveRecord::Schema.define(version: 20140707083835) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "org_name"
     t.integer  "org_id"
   end
+
+  create_table "searches", force: true do |t|
+    t.string   "string"
+    t.integer  "proj_id"
+    t.integer  "org_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "searches", ["org_id"], name: "index_searches_on_org_id", unique: true
+  add_index "searches", ["proj_id", "org_id"], name: "index_searches_on_proj_id_and_org_id", unique: true
+  add_index "searches", ["proj_id"], name: "index_searches_on_proj_id", unique: true
 
 end

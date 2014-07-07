@@ -5,9 +5,9 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:org_name) %></th>
-      <th><%= model_class.human_attribute_name(:org_country) %></th>
+      <th><%= model_class.human_attribute_name(:Id) %></th>
+      <th><%= model_class.human_attribute_name(:Organization_Name) %></th>
+      <th><%= model_class.human_attribute_name(:Organization_Country) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -16,8 +16,6 @@
     </tbody>
 </table>
 <div id="paginator", align="right">
-    <%= paginate @organizations %>
+    <%= paginate @organizations, :remote => true %>
 </div>
-<%= link_to "New",
-            new_organization_path,
-            :class => 'btn btn-primary' %>
+<%= link_to "New", new_organization_path, :class => 'btn btn-primary' %>

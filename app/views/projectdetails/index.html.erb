@@ -4,29 +4,39 @@
 </div>
 <table class="table table-striped">
   <thead>
+  <%= form_tag(:projectdetails, method: "get") do %>
+      <div align="left">
+        Enter Project Name
+        <%= text_field_tag "search", params[:search] %>
+        Enter status <%= select("status", "status_id", Projectdetail.all.collect {|p| [ p.status, p.id ] }) %>
+        Enter Organization Name<%= select("org_name", "org_id", Organization.all.collect {|p| [ p.org_name, p.id ] }, include_blank: true) %>
+        <%= submit_tag "Search", name: nil, class: "btn-custom-darken" %>
+        <br/>
+        <br/>
+      </div>
+    <% end %>
     <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:proj_name) %></th>
-      <th><%= model_class.human_attribute_name(:proj_code) %></th>
-      <th><%= model_class.human_attribute_name(:proj_desc) %></th>
-      <th><%= model_class.human_attribute_name(:biling_type) %></th>
-      <th><%= model_class.human_attribute_name(:start_date) %></th>
-      <th><%= model_class.human_attribute_name(:dead_line_date) %></th>
-      <th><%= model_class.human_attribute_name(:end_date) %></th>
-      <th><%= model_class.human_attribute_name(:github_url) %></th>
+      <th><%= model_class.human_attribute_name(:Id) %></th>
+      <th><%= model_class.human_attribute_name(:Project_Name) %></th>
+      <th><%= model_class.human_attribute_name(:Project_Code) %></th>
+      <th><%= model_class.human_attribute_name(:Project_Desc) %></th>
+      <th><%= model_class.human_attribute_name(:Billing_Type) %></th>
+      <th><%= model_class.human_attribute_name(:Start_Date) %></th>
+      <th><%= model_class.human_attribute_name(:Dead_line_Date) %></th>
+      <th><%= model_class.human_attribute_name(:End_Date) %></th>
+      <th><%= model_class.human_attribute_name(:Github_url) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:organization_name) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:Organization_Name) %></th>
+      <th><%= model_class.human_attribute_name(:Cretated_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody id="projectdetail">
+  <td>
    <%= render @projectdetails %>
     </tbody>
 </table>
-<div id="paginator", align="right">
-    <%= paginate @projectdetails %>
+<div id="paginator">
+    <%= paginate @projectdetails , :remote => true %>
 </div>
-<%= link_to "New",
-            new_projectdetail_path,
-            :class => 'btn btn-primary' %>
+<%= link_to "New", new_projectdetail_path, :class => 'btn btn-primary' %>
