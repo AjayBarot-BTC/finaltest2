@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140707110540) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "organizations", force: true do |t|
     t.string   "org_name"
     t.string   "org_country"
@@ -42,9 +45,5 @@ ActiveRecord::Schema.define(version: 20140707110540) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "searches", ["org_id"], name: "index_searches_on_org_id", unique: true
-  add_index "searches", ["proj_id", "org_id"], name: "index_searches_on_proj_id_and_org_id", unique: true
-  add_index "searches", ["proj_id"], name: "index_searches_on_proj_id", unique: true
 
 end
