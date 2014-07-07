@@ -2,7 +2,8 @@ class ProjectdetailsController < ApplicationController
   before_action :set_projectdetail, only: [:show, :edit, :update, :destroy]
 
   def index
-    @projectdetails = Projectdetail.all
+    @projectdetails = Projectdetail.page(params[:page]).per(5).order('dead_line_date asc')
+    #users = User.order(:name).page params[:page]
   end
 
   def show

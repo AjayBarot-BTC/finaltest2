@@ -19,34 +19,14 @@
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-  <tbody>
-    <% @projectdetails.each do |projectdetail| %>
-      <tr>
-        <td><%= link_to projectdetail.id, projectdetail_path(projectdetail) %></td>
-        <td><%= projectdetail.proj_name %></td>
-        <td><%= projectdetail.proj_code %></td>
-        <td><%= projectdetail.proj_desc %></td>
-        <td><%= projectdetail.biling_type %></td>
-        <td><%= projectdetail.start_date %></td>
-        <td><%= projectdetail.dead_line_date %></td>
-        <td><%= projectdetail.end_date %></td>
-        <td><%= projectdetail.github_url %></td>
-        <td><%= projectdetail.status %></td>
-        <td><%=l projectdetail.created_at %></td>
-        <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_projectdetail_path(projectdetail), :class => 'btn btn-mini' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      projectdetail_path(projectdetail),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-mini btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+  <tbody id="projectdetail">
+   <%= render @projectdetails %>
+    <div id="paginator">
+    <%= paginate @projectdetails %>
+    </div>
+    </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
+<%= link_to "New",
             new_projectdetail_path,
             :class => 'btn btn-primary' %>

@@ -1,0 +1,20 @@
+<tr>
+        <td><%= link_to projectdetail.id, projectdetail_path(projectdetail) %></td>
+        <td><%= projectdetail.proj_name %></td>
+        <td><%= projectdetail.proj_code %></td>
+        <td><%= projectdetail.proj_desc %></td>
+        <td><%= projectdetail.biling_type %></td>
+        <td><%= projectdetail.start_date %></td>
+        <td><%= projectdetail.dead_line_date %></td>
+        <td><%= projectdetail.end_date %></td>
+        <td><%= projectdetail.github_url %></td>
+        <td><%= projectdetail.status %></td>
+        <td><%= projectdetail.created_at %></td>
+        <td>
+          <%= link_to "Edit", edit_projectdetail_path(projectdetail), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy", projectdetail_path(projectdetail),
+                      :method => :delete,
+                      :data => { :confirm => 'Are you sure?' },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
