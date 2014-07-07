@@ -9,7 +9,8 @@ namespace :db do
                  dead_line_date: "7/7/15",
                  end_date: "28/2/14",
                  github_url: "fsdfsd",
-                 status: "POC")
+                 status: "POC",
+                 org_name: "Hireinfluence")
     50.times do |n|
       proj_name  = Faker::Name.name
       proj_code = "ex-#{n+1}"
@@ -20,6 +21,7 @@ namespace :db do
       end_date = "28/2/14"
       github_url = "fsdfsd"
       status = "POC"
+      org_name = "Hireinfluence"
       Projectdetail.create!(proj_name: proj_name,
                    proj_code: proj_code,
                    proj_desc: proj_desc,
@@ -28,7 +30,8 @@ namespace :db do
                    dead_line_date: dead_line_date,
                    end_date: end_date,
                    github_url: github_url,
-                   status: status)
+                   status: status,
+                   org_name: org_name)
     end
   end
 end

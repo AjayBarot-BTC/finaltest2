@@ -13,5 +13,6 @@ class CreateProjectdetails < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :projectdetails, [:org_id, :created_at]
   end
 end

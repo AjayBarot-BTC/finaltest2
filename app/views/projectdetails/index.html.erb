@@ -15,18 +15,18 @@
       <th><%= model_class.human_attribute_name(:end_date) %></th>
       <th><%= model_class.human_attribute_name(:github_url) %></th>
       <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:organization_name) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
   <tbody id="projectdetail">
    <%= render @projectdetails %>
-    <div id="paginator">
-    <%= paginate @projectdetails %>
-    </div>
     </tbody>
 </table>
-
+<div id="paginator", align="right">
+    <%= paginate @projectdetails %>
+</div>
 <%= link_to "New",
             new_projectdetail_path,
             :class => 'btn btn-primary' %>

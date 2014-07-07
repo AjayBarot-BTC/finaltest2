@@ -1,0 +1,12 @@
+<tr>
+        <td><%= link_to organization.id, organization_path(organization) %></td>
+        <td><%= organization.org_name %></td>
+        <td><%= organization.org_country %></td>
+        <td>
+          <%= link_to "Edit", edit_organization_path(organization), :class => 'btn btn-mini' %>
+          <%= link_to "Destroy", organization_path(organization),
+                      :method => :delete,
+                      :data => { :confirm => 'Are you sure?' },
+                      :class => 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>

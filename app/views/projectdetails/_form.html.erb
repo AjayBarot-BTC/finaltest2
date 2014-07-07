@@ -42,7 +42,7 @@
   <div class="control-group">
     <%= f.label :Start_date, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :start_date, placeholder: "Select Start Date" , 'data-behaviour' => 'datepicker', :id => 'datepicker', :class => 'text_field' %>,
+      <%= f.text_field :start_date, placeholder: "Select Start Date" , 'data-behaviour' => 'datepicker', :id => 'datepicker', :class => 'text_field' %>
     </div>
   </div>
 
@@ -72,6 +72,14 @@
       <%= f.select :status, ['POC', 'KICK OFF', 'COMPLETED'], placeholder: "Select Status"  , :class => 'text_field' %>
     </div>
   </div>
+
+  <div class="control-group">
+    <%= f.label :Organization_name, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select :org_id, Projectdetail.all, :id, :org_name, placeholder: "Enter Organization_name", :class => 'text_field' %>
+    </div>
+  </div>
+
   </div>
   </div>
   </div>
