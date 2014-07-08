@@ -4,10 +4,26 @@ class ProjectdetailsController < ApplicationController
 
   def index
     #@projectdetails = projectdetail.all
-    @projectdetails = Projectdetail.order('dead_line_date asc').page(params[:page]).per(5).where("proj_name LIKE ? OR status LIKE ?", "#{params[:search]}%", "#{params[:search]}%")
     
+
+    #search by method in model
+    #@projectdetails = Projectdetail.search(params[:search],params[:status],params[:org_name])
+    #@projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5)
+   
+
+    #my method using kaminari
+    @projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5)
+
+    #using will_paginate
+    #page(params[:page]).per(5).where("proj_name LIKE ? OR status LIKE ?", "#{params[:search]}%", "#{params[:search]}%")
+    #paginate(:page => params[:page], :per_page => 5)
+   # @projectdetails = Projectdetail.search(params[:search],params[:status],params[:org_id]).paginate(:page => params[:page])
+    #@projectdetails = Projectdetail.paginate(:page => params[:page], :per_page => 5).order('dead_line_date asc')
+
+    #{params[:search]}%", "#{params[:search]}%
+    #@projects = Project.search(params[:search],params[:status],params[:client_id]).paginate(:page => params[:page])
     #@searches = User.joins([:requests]).where("name LIKE ? OR destination LIKE ?","#{params[:search]}%", "#{params[:search]}%")
-    @organizations = Organization.all
+    #@organizations = Organization.all
   end
 
   def show
@@ -40,6 +56,7 @@ class ProjectdetailsController < ApplicationController
       end
     end
   end
+
   def destroy
     @projectdetail.destroy
     respond_to do |format|
@@ -53,10 +70,10 @@ class ProjectdetailsController < ApplicationController
     end
 
     def projectdetail_params
-      params.require(:projectdetail).permit(:proj_name, :proj_code, :proj_desc, :biling_type, :start_date, :dead_line_date, :end_date, :github_url, :status)
+      params.require(:projectdetail).permit(:proj_name, :proj_code, :proj_desc, :biling_type, :start_date, :dead_line_date, :end_date, :github_url, :status, :org_id)
     end
 
     def blank_name
-      redirect_to(root_url) unless @projectdetail.org_name == nil 
+      redirect_to(root_url) unless @projectdetail.org_id == nil 
     end
 end

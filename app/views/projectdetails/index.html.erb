@@ -7,10 +7,11 @@
   <%= form_tag(:projectdetails, method: "get") do %>
       <div align="left">
         Enter Project Name
-        <%= text_field_tag "search", params[:search] %>
-        Enter status <%= select("status", "status_id", Projectdetail.all.collect {|p| [ p.status, p.id ] }) %>
+        <%= text_field_tag :search, params[:search] %>
+        Enter status <%= select_tag(:status,options_for_select(['POC','KICK OFF','COMPLETED']))%>
         Enter Organization Name<%= select("org_name", "org_id", Organization.all.collect {|p| [ p.org_name, p.id ] }, include_blank: true) %>
-        <%= submit_tag "Search", name: nil, class: "btn-custom-darken" %>
+
+        
         <br/>
         <br/>
       </div>
@@ -37,6 +38,6 @@
     </tbody>
 </table>
 <div id="paginator">
-    <%= paginate @projectdetails , :remote => true %>
+    <%= will_paginate @projectdetails , :remote => true %>
 </div>
 <%= link_to "New", new_projectdetail_path, :class => 'btn btn-primary' %>

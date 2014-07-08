@@ -5,8 +5,6 @@ class CreateOrganizations < ActiveRecord::Migration
       t.string :org_country
 
       t.timestamps
-
-      add_index :organizations, :org_name, unique: true
     end
   end
 end
