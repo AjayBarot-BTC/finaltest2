@@ -253,6 +253,6 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
-  config.rpx_application_name = "project tracking"
-  RPXNow.api_key = "a1ac9134cd40b2c04243e60fb53a81d71e27c7ed"
+  #config.rpx_application_name = "project tracking"
+  #RPXNow.api_key = "a1ac9134cd40b2c04243e60fb53a81d71e27c7ed"
 end
