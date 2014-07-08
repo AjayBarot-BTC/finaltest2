@@ -5,14 +5,12 @@
 <table class="table table-striped">
   <thead>
   <%= form_tag(:projectdetails, method: "get") do %>
-      <div align="left">
         Enter Project Name
         <%= text_field_tag :search, params[:search] %>
         Enter status <%= select_tag(:status,options_for_select(['POC','KICK OFF','COMPLETED']))%>
-        Enter Organization Name<%= select_tag(:org_id, options_for_select(Organization.all.collect {|p| [ p.org_name, p.id ] })) %>
-        <%= submit_tag "Search", name: nil, class: "btn-custom-darken" %>
-        <br/>
-        <br/>
+        Enter Organization Name<%= select_tag(:organization_id, options_for_select(Organization.all.collect {|p| [ p.org_name, p.id ] })) %>
+        <div align="center">
+        <%= submit_tag "Search", class: "btn btn-primary" %>
       </div>
     <% end %>
     <tr>

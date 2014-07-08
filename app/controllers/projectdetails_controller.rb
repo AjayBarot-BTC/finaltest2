@@ -10,7 +10,7 @@ class ProjectdetailsController < ApplicationController
     #search by method in model
     
     #@projectdetails = Projectdetail.paginate(:page => params[:page], :per_page => 5).order('dead_line_date asc').search(params[:search],params[:status],params[:organization_id])
-    @projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5).search(params[:search],params[:status],params[:org_name])
+    @projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5).search(params[:search],params[:status],params[:organization_id])
    
 
     #my method using kaminari
