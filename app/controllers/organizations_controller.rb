@@ -5,7 +5,7 @@ before_action :set_organization, only: [:show, :edit, :update, :destroy]
 	end
 
 	def index
-		@organizations = Organization.page(params[:page]).per(5)
+		@organizations = Organization.paginate(:page => params[:page], :per_page => 5)
 	end
 
 	def create

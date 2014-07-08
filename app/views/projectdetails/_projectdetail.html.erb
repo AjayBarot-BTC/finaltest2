@@ -9,7 +9,7 @@
         <td><%= projectdetail.end_date %></td>
         <td><%= projectdetail.github_url %></td>
         <td><%= projectdetail.status %></td>
-        <td><%= Organization.find_by_id(projectdetail.org_id).org_name %></td>
+        <td><%= Organization.find_by_id(projectdetail.organization.id).org_name %></td>
         <td><%= projectdetail.created_at %></td>
         <td>
           <%= link_to "Edit", edit_projectdetail_path(projectdetail), :class => 'btn btn-mini' %>

@@ -77,12 +77,12 @@
   <% if action_name == 'new' %> 
     <%= f.label :Organization_name, :class => 'control-label' %>
     <div class="controls">
-    <%= f.collection_select :org_id, Organization.all, :id, :org_name, placeholder: "Enter Organization_name", :class => 'text_field', include_blank: true %>
+    <%= f.collection_select :organization_id, Organization.all, :id, :org_name, placeholder: "Enter Organization_name", :class => 'text_field', include_blank: true %>
     </div>
     <% elsif action_name == 'edit' %>
     <%= f.label :Organization_name, :class => 'control-label' %>
     <div class="controls">
-    <%= f.collection_select :org_id, Organization.all, :id, :org_name, {}, {:disabled => "disabled"}  %> 
+    <%= f.collection_select :organization_id, Organization.all, :id, :org_name, {}, {:disabled => "disabled"}  %> 
     </div>
     <% end %>
   </div>

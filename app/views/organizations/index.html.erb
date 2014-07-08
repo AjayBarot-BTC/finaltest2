@@ -12,10 +12,28 @@
     </tr>
   </thead>
   <tbody id="projectdetail">
-   <%= render @organizations %>
+  <% @organizations.each do |f| %>
+ <tr>
+        <td><%= link_to f.id, organization_path(f) %></td>
+        <td><%= f.org_name %></td>
+        <td><%= f.org_country %></td>
+        <td>
+          <%= link_to "Edit", edit_organization_path(f), :class => 'btn btn-mini' %>
+          <% if f.projectdetails.any? %>
+
+          <% else %>
+          <%= link_to "Destroy", organization_path(f
+            ),
+                      :method => :delete, 
+                      :data => { :confirm => 'Are you sure?' }, 
+                      :class => 'btn btn-mini btn-danger' %>
+          <% end %>
+        </td>
+      </tr>
+<% end %>
     </tbody>
 </table>
 <div id="paginator", align="right">
-    <%= paginate @organizations, :remote => true %>
+    <%= will_paginate @organizations, :remote => true %>
 </div>
 <%= link_to "New", new_organization_path, :class => 'btn btn-primary' %>

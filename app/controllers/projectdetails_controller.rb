@@ -1,4 +1,5 @@
 class ProjectdetailsController < ApplicationController
+  require 'will_paginate/array';
   before_action :set_projectdetail, only: [:show, :edit, :update, :destroy]
   #before_action :blank_name, only: :destroy
 
@@ -7,9 +8,9 @@ class ProjectdetailsController < ApplicationController
     
 
     #search by method in model
-
-    @projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5).search(params[:search],params[:status],params[:org_name])
     
+    #@projectdetails = Projectdetail.paginate(:page => params[:page], :per_page => 5).order('dead_line_date asc').search(params[:search],params[:status],params[:organization_id])
+    @projectdetails = Projectdetail.order('dead_line_date asc').paginate(:page => params[:page], :per_page => 5).search(params[:search],params[:status],params[:org_name])
    
 
     #my method using kaminari
@@ -85,7 +86,7 @@ class ProjectdetailsController < ApplicationController
     end
 
     def projectdetail_params
-      params.require(:projectdetail).permit(:proj_name, :proj_code, :proj_desc, :biling_type, :start_date, :dead_line_date, :end_date, :github_url, :status, :org_id)
+      params.require(:projectdetail).permit(:proj_name, :proj_code, :proj_desc, :biling_type, :start_date, :dead_line_date, :end_date, :github_url, :status, :organization_id)
     end
 
     def blank_name

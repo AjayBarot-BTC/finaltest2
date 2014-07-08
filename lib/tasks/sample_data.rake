@@ -10,7 +10,7 @@ namespace :db do
                  end_date: "28/2/14",
                  github_url: "fsdfsd",
                  status: "POC",
-                 org_id: 1)
+                 organization_id: 1)
     50.times do |n|
       proj_name  = Faker::Name.name
       proj_code = "ex-#{n+1}"
@@ -21,7 +21,7 @@ namespace :db do
       end_date = "28/2/14"
       github_url = "fsdfsd"
       status = "POC"
-      org_id = 1
+      organization_id = 1
       Projectdetail.create!(proj_name: proj_name,
                    proj_code: proj_code,
                    proj_desc: proj_desc,
@@ -31,7 +31,7 @@ namespace :db do
                    end_date: end_date,
                    github_url: github_url,
                    status: status,
-                   org_id: org_id)
+                   organization_id: organization_id)
     end
   end
 end
