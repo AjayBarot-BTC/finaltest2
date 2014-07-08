@@ -7,6 +7,9 @@ gem 'rails', '4.0.5'
 group :development do
 	gem 'sqlite3' , '1.3.8'
 end
+gem 'devise'
+
+gem "devise_rpx_connectable"
 
 gem 'bootstrap-sass', '2.3.2.0'
 

@@ -1,7 +1,12 @@
 Frust::Application.routes.draw do
+  devise_for :users
   resources :projectdetails
 root 'homes#index'
   resources :organizations
+
+  devise_scope :user do
+    get '/users/sign_out' => 'sessions#destroy'
+  end
   #root 'projectdetails#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

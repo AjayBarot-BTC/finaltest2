@@ -19,5 +19,6 @@ module Frust
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    RPXNow.api_key = "a1ac9134cd40b2c04243e60fb53a81d71e27c7ed"
   end
 end

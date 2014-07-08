@@ -1,5 +1,7 @@
 class ProjectdetailsController < ApplicationController
+
   require 'will_paginate/array';
+  before_action :authenticate_user!
   before_action :set_projectdetail, only: [:show, :edit, :update, :destroy]
   #before_action :blank_name, only: :destroy
 
