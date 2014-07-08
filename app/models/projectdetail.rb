@@ -4,6 +4,7 @@ validates :biling_type, presence: true
 validates :proj_name, presence: true, length: { maximum: 50 }
 
 belongs_to :organization
+
 def self.search(search,status,organization_id)
   if (search || status || organization_id)
     find(:all, :conditions => ['proj_name = ? OR status = ? OR organization_id = ?',search,status,organization_id])
