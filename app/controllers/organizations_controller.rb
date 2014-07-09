@@ -1,6 +1,8 @@
 class OrganizationsController < ApplicationController
 	before_action :authenticate_user!
+	load_and_authorize_resource :except => [:create]
 	before_action :set_organization, only: [:show, :edit, :update, :destroy]
+	
 
 	def show
 	end
@@ -21,7 +23,8 @@ class OrganizationsController < ApplicationController
 	end
 
 	def new
-		@organization = Organization.new
+		#@organization = Organization.new
+		#unauthorized! if cannot? :new, @organization
 	end
 
 	def update
@@ -48,6 +51,6 @@ class OrganizationsController < ApplicationController
 	end
 
 	def set_organization
-		@organization = Organization.find(params[:id])
+		#@organization = Organization.find(params[:id])
 	end
 end

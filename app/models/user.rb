@@ -11,17 +11,6 @@ class User < ActiveRecord::Base
   validates_format_of       :email, with: Devise.email_regexp, allow_blank: true, :if => :email_changed?
   validates_presence_of     :password, on: :create
   validates_confirmation_of :password, :on=>:create
-  
-  def has_permission?(controller)
-    case controller
-    when :organizations
-      have_role?(Role::ADMIN)  
-    when :projectdetails
-      have_role?(Role::LEADER) ||
-      have_role?(Role::ADMIN) 
-    else
-    end
-  end
 
  # def email=(email)
  #   @email = email

@@ -1,9 +1,9 @@
 class ProjectdetailsController < ApplicationController
-
-  require 'will_paginate/array';
   before_action :authenticate_user!
+  load_and_authorize_resource :except => [:create]
+  require 'will_paginate/array';
   before_action :set_projectdetail, only: [:show, :edit, :update, :destroy]
-  #before_action :blank_name, only: :destroy
+  
 
   def index
     #@projectdetails = projectdetail.all
@@ -45,16 +45,16 @@ class ProjectdetailsController < ApplicationController
   end
 
   def show
-    @projectdetail = Projectdetail.find(params[:id])
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = ProjectdetailPdf.new(@projectdetail, view_context)
-        send_data pdf.render, filename: "projectdetail_#{@projectdetail.proj_code}.pdf",
-        type: "application/pdf",
-        dispostion: "inline"
-  end
-end
+    #@projectdetail = Projectdetail.find(params[:id])
+    #respond_to do |format|
+     # format.html
+     # format.pdf do
+      #  pdf = ProjectdetailPdf.new(@projectdetail, view_context)
+      #  send_data pdf.render, filename: "projectdetail_#{@projectdetail.proj_code}.pdf",
+      #  type: "application/pdf",
+       # dispostion: "inline"
+  #end
+#end
 end
 
   def new
@@ -94,14 +94,10 @@ end
 
   private
     def set_projectdetail
-      @projectdetail = Projectdetail.find(params[:id])
+      #@projectdetail = Projectdetail.find(params[:id])
     end
 
     def projectdetail_params
       params.require(:projectdetail).permit(:proj_name, :proj_code, :proj_desc, :biling_type, :start_date, :dead_line_date, :end_date, :github_url, :status, :organization_id)
-    end
-
-    def blank_name
-      #redirect_to(root_url) unless @projectdetail.org_id == nil 
     end
 end

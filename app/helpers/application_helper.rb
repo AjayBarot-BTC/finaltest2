@@ -1,16 +1,18 @@
 module ApplicationHelper
 
 def render_navigation_menu_option(option, other_attr)
-    case option
-    when :projectdetails
+    if can?(:manage, Projectdetail) && option == :projectdetails
       url = projectdetails_path
       link_title = "Project Detail"
-
-    when :organizations
+    elsif can?(:manage, Organization) && option == :organizations
       url = organizations_path
       link_title = "Organization"
-    else
+    elsif (Role::LEADER) && option == :projectdetails
+      url = projectdetails_path
+      link_title = "Project Detail"
     end
-    content_tag(:li, link_to(link_title, url)) if current_user.has_permission?(option)
+    if url
+    content_tag(:li, link_to(link_title, url)) 
+    end
   end
 end
