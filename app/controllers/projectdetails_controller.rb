@@ -45,7 +45,17 @@ class ProjectdetailsController < ApplicationController
   end
 
   def show
+    @projectdetail = Projectdetail.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = ProjectdetailPdf.new(@projectdetail, view_context)
+        send_data pdf.render, filename: "projectdetail_#{@projectdetail.proj_code}.pdf",
+        type: "application/pdf",
+        dispostion: "inline"
   end
+end
+end
 
   def new
     @projectdetail = Projectdetail.new

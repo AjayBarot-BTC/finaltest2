@@ -1,12 +1,19 @@
 Frust::Application.routes.draw do
   devise_for :users
-  resources :projectdetails
+  #resources :projectdetails
 root 'homes#index'
-  resources :organizations
+  #resources :organizations
 
   devise_scope :user do
     get '/users/sign_out' => 'sessions#destroy'
   end
+
+  scope '/admin' do
+  resources :projectdetails
+  resources :organizations
+  end
+
+  #get '/admin/edit' => 'users/registrations#edit', as: :admin_edit_id
   #root 'projectdetails#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
