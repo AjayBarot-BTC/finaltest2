@@ -12,6 +12,8 @@ gem 'devise'
 
 gem 'prawn'
 
+gem 'omniauth-facebook'
+
 gem 'cancan'
 
 gem "devise_rpx_connectable"

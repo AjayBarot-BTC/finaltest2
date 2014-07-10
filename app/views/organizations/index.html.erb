@@ -8,6 +8,12 @@
       <th><%= model_class.human_attribute_name(:Id) %></th>
       <th><%= model_class.human_attribute_name(:Organization_Name) %></th>
       <th><%= model_class.human_attribute_name(:Organization_Country) %></th>
+      
+
+      
+      <th><%= model_class.human_attribute_name(:POC) %></th>
+      <th><%= model_class.human_attribute_name(:KICK_OFF) %></th>
+      <th><%= model_class.human_attribute_name(:COMPLETED) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,6 +23,9 @@
         <td><%= link_to f.id, organization_path(f) %></td>
         <td><%= f.org_name %></td>
         <td><%= f.org_country %></td>
+        <td><%= f.projectdetails.count_by('POC')%></td>
+        <td><%= f.projectdetails.count_by('KICK_OFF')%></td>
+        <td><%= f.projectdetails.count_by('COMPLETED') %></td>
         <td>
           <%= link_to "Edit", edit_organization_path(f), :class => 'btn btn-mini' %>
           <% if f.projectdetails.any? %>

@@ -10,10 +10,6 @@
           <% options.each do |option| %>
             <%= render_navigation_menu_option(option, @activity) %>
           <% end %>
-            <%# if user_signed_in? %>
-            <li><%#= link_to "Signin", new_user_session_path %></li>
-              <li><%#= link_to "Project Detail", projectdetails_path %></li>
-              <li><%#= link_to "Organization", organizations_path %></li>
                <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>

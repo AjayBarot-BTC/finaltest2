@@ -1,4 +1,5 @@
 Frust::Application.routes.draw do
+  get "accounts/index"
   devise_for :users
   #resources :projectdetails
 root 'homes#index'
@@ -8,10 +9,10 @@ root 'homes#index'
     get '/users/sign_out' => 'sessions#destroy'
   end
 
-  scope '/admin' do
+  #scope '/admin' do
   resources :projectdetails
   resources :organizations
-  end
+  #end
 
   #get '/admin/edit' => 'users/registrations#edit', as: :admin_edit_id
   #root 'projectdetails#index'

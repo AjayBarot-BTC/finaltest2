@@ -13,6 +13,15 @@ def self.search(search,status,organization_id)
     find(:all)
   end
 end
+
+def self.count_by(count)
+	find(:all, :conditions => ['status = ?', count]).count
+end
+
+#def self.status_count(count)
+#	if (status)
+#		find(:all, :where (status: "POC").count)
+#end
 #def self.search(search,status,client)
 #  if (search || status || client)
 #    find(:all, :conditions => ['name LIKE ? OR status LIKE ? OR client_id LIKE ?',search,status,client])

@@ -12,14 +12,6 @@ class User < ActiveRecord::Base
   validates_presence_of     :password, on: :create
   validates_confirmation_of :password, :on=>:create
 
- # def email=(email)
- #   @email = email
- # end
-
- # def email
- #   @email || email
- # end
-  
   def is?(role)
   	roles.find_by_alias(role.to_s).present?
   end
@@ -35,15 +27,4 @@ class User < ActiveRecord::Base
   def have_role?(role_type)
     roles.pluck(:alias).include? role_type if roles
   end
-
-  def self.find_first_by_auth_conditions(warden_conditions)
-    conditions = warden_conditions.dup
-    if email = conditions.delete(:email)
-      where(conditions).where(['lower(email) = :value',
-                               { value: email.downcase }]).first
-    else
-      where(conditions).first
-    end
-  end
-
 end
